@@ -1,0 +1,8 @@
+opencv-python
+joblib
+numpy
+seaborn
+matplotlib
+scikit-learn
+streamlit==1.43.0
+streamlit-drawable-canvas==0.9.3
