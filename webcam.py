@@ -69,6 +69,6 @@ while st.session_state.start_camera is True and can_proba is True:
             thickness=1,
             lineType=cv2.LINE_AA,
         )
-    FRAME_WINDOW.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    FRAME_WINDOW.image(frame, channels="BGR")
     # THRESH_WINDOW.image(thresh)
     sleep(0.01)
