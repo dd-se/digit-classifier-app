@@ -4,7 +4,7 @@ if "session_model" in st.session_state:
     st.session_state.session_model = None
 
 if "models" not in st.session_state:
-    st.session_state.models = [model for model in Path("resources/models").glob("*.*")]
+    st.session_state.models = [model for model in Path("models").glob("*.*")]
 
 
 @st.cache_resource

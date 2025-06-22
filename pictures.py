@@ -132,8 +132,7 @@ if images_uploaded and not true_labels_input and not true_labels_uploaded:
 
 if st.sidebar.toggle("Visa Parametrar"):
     st.sidebar.write(st.session_state.model.get_params())
-
-if true_labels_uploaded or true_labels_input and images_uploaded:
+if (true_labels_uploaded or true_labels_input) and images_uploaded:
     true_labels_processed = label_processor(true_labels_uploaded or true_labels_input)
     true_label_assigner(images_uploaded, true_labels_processed)
     predict_images(images_uploaded)

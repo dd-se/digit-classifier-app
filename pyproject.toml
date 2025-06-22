@@ -1,0 +1,13 @@
+[project]
+name = "digit-classifier-app"
+version = "1.0.0"
+description = "Digit classifier app"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python==4.11.0.86",
+    "scikit-learn==1.6.1",
+    "seaborn==0.13.2",
+    "streamlit==1.43.0",
+    "streamlit-drawable-canvas==0.9.3",
+]

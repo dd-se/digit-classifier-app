@@ -1,36 +1,39 @@
-## Prerequisites
+# Digit Classifier App
 
-Before running the app, ensure Python 3.10 or higher installed.
+This project is a Streamlit-based web application for digit recognition using machine learning models trained on the MNIST dataset. Users can draw digits, upload images, or use their webcam to predict handwritten digits.
 
-## Installation
+## Features
 
-1. Clone the repository:
+- **Draw Digits:**
+  - Use an interactive canvas to draw digits and make predictions.
 
-    ```bash
-    git clone https://github.com/dd-se/ml-app
-    cd ml-app
-    ```
+- **Webcam Digit Recognition:**
+  - Use your webcam to capture handwritten digits in real-time.
+  - The app detects digits in the video stream, predicts them, and overlays the result on the video.
 
-2. Create a virtual environment (optional but recommended):
+- **Image Upload & Batch Prediction:**
+  - Upload one or more images for batch digit prediction.
+  - Optionally upload or input true labels to evaluate accuracy and view a confusion matrix.
 
-    ```bash
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-    ```
+## How to Run
 
-3. Install the required dependencies:
+1. **Prerequisites**
+- Python 3.10+
+- Install dependencies with pip or uv:
+  ```bash
+  pip install -r requirements.txt
+  ```
+  ```bash
+  uv sync
+  ```
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. **Start the App**
+   ```bash
+   streamlit run app.py
+   ```
 
-## Running the App
+## Models
+Pretrained models are stored in the `models` directory. The app loads the selected model for predictions.
 
-1. Start the Streamlit app:
-
-    ```bash
-    streamlit run app.py
-    ```
-
-2. Open your browser and navigate to the URL provided in the terminal (usually `http://localhost:8501`).
-
+## License
+MIT License

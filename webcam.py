@@ -8,6 +8,7 @@ THRESH_WINDOW = st.image([])
 MIN_AREA = 50
 CONF_THRESHOLD = 0.9
 
+
 if "start_camera" not in st.session_state:
     st.session_state.start_camera = False
 
@@ -18,13 +19,17 @@ def start_camera():
 
 def stop_camera():
     st.session_state.start_camera = False
+    if camera.isOpened():
+        camera.release()
 
 
-st.sidebar.button("Starta", on_click=start_camera, use_container_width=True)
-st.sidebar.button("Stoppa", on_click=stop_camera, use_container_width=True)
+if st.session_state.start_camera:
+    camera = cv2.VideoCapture(0)
+
+col_1, col_2 = st.sidebar.columns(2)
+col_1.button("Starta", on_click=start_camera, use_container_width=True)
+col_2.button("Stoppa", on_click=stop_camera, use_container_width=True, disabled=not st.session_state.start_camera)
 can_proba = hasattr(st.session_state.model, "predict_proba") or st.error("Välj en model som kan beräkna sannolikheter.")
-
-camera = cv2.VideoCapture(0)
 while st.session_state.start_camera is True and can_proba is True:
     ret, frame = camera.read()
     if not ret:
